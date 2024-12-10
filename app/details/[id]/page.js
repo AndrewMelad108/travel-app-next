@@ -1,7 +1,7 @@
 
 export default async function Details({ params }) {
   const { id } = params;
-  const response = await fetch(`http://localhost:3000/api/flights/${id}`);
+  const response = await fetch(`${process.env.URL_NEXT_API}/flights/${id}`);
   const result = await response.json();
   const flight = await result.data ;
   if (!flight) {

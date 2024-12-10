@@ -7,11 +7,7 @@ export default function Results() {
   const router = useRouter();
   const searchParams = useSearchParams(); 
   const fetchFlights = async () => {
-    try {
-      const response = await fetch('http://localhost:3000/api/flights');
-      if (!response.ok) {
-        throw new Error('Failed to fetch flights');
-      }
+      const response = await fetch(`${process.env.URL_NEXT_API}flights`);
       const {data} = await response.json();
       const destination = searchParams.get('destination'); 
       setFlights(
@@ -19,9 +15,7 @@ export default function Results() {
           destination ? flight.destination.toLowerCase() === destination.toLowerCase() : true
         )
       );
-    } catch (error) {
-      console.error('Error fetching flights:', error);
-    }
+   
   };
   useEffect(() => {
     fetchFlights();
