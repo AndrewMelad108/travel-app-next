@@ -7,7 +7,7 @@ export default function Results() {
   const router = useRouter();
   const searchParams = useSearchParams(); 
   const fetchFlights = async () => {
-      const response = await fetch(`${process.env.URL_NEXT_API}flights`);
+      const response = await fetch(`${process.env.URL_NEXT_API}/api/flights`);
       const {data} = await response.json();
       const destination = searchParams.get('destination'); 
       setFlights(
