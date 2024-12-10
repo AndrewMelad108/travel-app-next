@@ -6,7 +6,7 @@ export default function Results() {
   const [flights, setFlights] = useState([]);
   const router = useRouter();
   const searchParams = useSearchParams(); 
-  const apiUrl = `${process.env.URL_NEXT_API}/api/flights`;
+  const apiUrl = `https://travel-app-next-delta.vercel.app/api/flights`;
   const fetchFlights = async () => {
       const response = await fetch(`${apiUrl}`);
       const {data} = await response.json();
