@@ -1,7 +1,8 @@
 
 export default async function Details({ params }) {
   const { id } = params;
-  const response = await fetch(`${process.env.URL_NEXT_API}/api/flights/${id}`);
+  const apiUrl = `${process.env.URL_NEXT_API}/api/flights/${id}`
+  const response = await fetch(`${apiUrl}`);
   const result = await response.json();
   const flight = await result.data ;
   if (!flight) {

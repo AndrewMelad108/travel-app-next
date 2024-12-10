@@ -6,8 +6,9 @@ export default function Results() {
   const [flights, setFlights] = useState([]);
   const router = useRouter();
   const searchParams = useSearchParams(); 
+  const apiUrl = `${process.env.URL_NEXT_API}/api/flights`;
   const fetchFlights = async () => {
-      const response = await fetch(`${process.env.URL_NEXT_API}/api/flights`);
+      const response = await fetch(`${apiUrl}`);
       const {data} = await response.json();
       const destination = searchParams.get('destination'); 
       setFlights(
