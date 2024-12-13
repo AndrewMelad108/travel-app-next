@@ -33,7 +33,7 @@ export default function Results() {
 
   return (
     <div className="bg-cover">
-      <h1>Search Results</h1>
+      <h1 className="no-data">Search Results</h1>
       {isClient && flights.length > 0 ? (
         <div className="container">
           {flights.map((flight) => (
@@ -64,9 +64,8 @@ export default function Results() {
           ))}
         </div>
       ) : (
-        <p>
-          No flights found for "
-          {searchParams.get("destination") || "your search"}"
+        <p className="no-data">
+          No flights found for "{searchParams.get("destination")}"
         </p>
       )}
     </div>
