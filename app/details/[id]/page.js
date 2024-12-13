@@ -1,16 +1,15 @@
-
 export default async function Details({ params }) {
   const { id } = params;
-  const apiUrl = `${process.env.URL_NEXT_API}/api/flights/${id}`
+  const apiUrl = `${process.env.NEXT_PUBLIC_URL_NEXT_API}/api/flights/${id}`;
   const response = await fetch(`${apiUrl}`);
   const result = await response.json();
-  const flight = await result.data ;
+  const flight = await result.data;
   if (!flight) {
     return <p>Flight not found!</p>;
   }
 
   return (
-    <div style={{ padding: '2rem' }}>
+    <div className="bg-cover">
       <h1>Flight Details</h1>
       <p>
         <strong>Airline:</strong> {flight.airline}
