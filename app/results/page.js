@@ -1,72 +1,51 @@
 "use client";
-import { useRouter, useSearchParams } from "next/navigation";
+import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
-import Image from "next/image";
-import ImageCard from "../../public/assest/images/pexels-taryn-elliott-6624558.jpg";
+import Card from "../components/Card";
+import Loader from "../components/Loading";
 export default function Results() {
-  const [isClient, setIsClient] = useState(false);
+  const [flights, setFlights] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const searchParams = useSearchParams();
+  const fetchFlights = () => {
+    fetch(
+      `${
+        process.env.NEXT_PUBLIC_URL_NEXT_API
+      }/api/flights?value=${searchParams.get("destination")}`
+    )
+      .then((response) => {
+        return response.json();
+      })
+      .then((result) => {
+        setFlights(result.data);
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        setFlights([]);
+        setIsLoading(false);
+      });
+  };
 
   useEffect(() => {
-    setIsClient(true);
+    fetchFlights();
   }, []);
-  const [flights, setFlights] = useState([]);
-  const router = useRouter();
-  const searchParams = useSearchParams();
-  const fetchFlights = async () => {
-    console.log(process.env.URL_NEXT_API);
-    const response = await fetch(
-      `${process.env.NEXT_PUBLIC_URL_NEXT_API}/api/flights`
-    );
-    const { data } = await response.json();
-    const destination = searchParams.get("destination");
-    setFlights(
-      data.filter((flight) =>
-        destination
-          ? flight.destination.toLowerCase() === destination.toLowerCase()
-          : true
-      )
-    );
-  };
   useEffect(() => {
     fetchFlights();
   }, [searchParams]);
 
+  if (isLoading) {
+    return <Loader />;
+  }
+
   return (
     <div className="bg-cover">
       <h1 className="no-data">Search Results</h1>
-      {isClient && flights.length > 0 ? (
+      {flights.length > 0 && (
         <div className="container">
           {flights.map((flight) => (
-            <div
-              key={flight.id}
-              onClick={() => router.push(`/details/${flight.id}`)}
-              className="card"
-            >
-              <Image
-                className="image"
-                src={ImageCard}
-                height={150}
-                alt="Image Description"
-              />
-              <p>
-                <span className="label">airline :</span>
-                <strong>{flight.airline}</strong>
-              </p>
-              <p>
-                <span className="label">destination :</span>
-                <span>{flight.destination}</span>
-              </p>
-              <p>
-                <span className="label">price :</span>
-                <span>{flight.price}$</span>
-              </p>
-            </div>
+            <Card key={flight.id} flight={flight} />
           ))}
         </div>
-      ) : (
-        <p className="no-data">
-          No flights found for "{searchParams.get("destination")}"
-        </p>
       )}
     </div>
   );
