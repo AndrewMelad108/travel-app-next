@@ -11,7 +11,7 @@ export default async function Details({ params }) {
   }
 
   return (
-    <div className="bg-cover ">
+    <div className="bg-cover details-flex ">
       <div className="details">
         <h1 className="title-name">Flight Details</h1>
         <div className="details-content">
