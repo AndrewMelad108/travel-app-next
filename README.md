@@ -1,37 +1,125 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
-## Getting Started
+# Travel App - Next.js
 
-First, run the development server:
+This project is built using **Next.js**, designed to provide an efficient and fast travel experience platform.
+
+## Prerequisites
+
+Before running the project, make sure you have the following installed on your system:
+
+- **Node.js**: Version 18 or higher is recommended.  
+  You can download it from [Node.js Official Website](https://nodejs.org/).
+
+## Installation and Setup
+
+Follow these steps to set up and run the project on your local machine:
+
+1. **Clone the Repository**
+
+   Clone the project using the following command:
+
+   ```bash
+   git clone https://github.com/AndrewMelad108/travel-app-next.git     using  HTTPS
+   git clone git@github.com:AndrewMelad108/travel-app-next.git         using  SSH 
+   ```
+
+   Navigate to the project directory:
+
+   ```bash
+   cd travel-app-next
+   ```
+
+2. **Install Dependencies**
+
+   Install the required dependencies using npm:
+
+   ```bash
+   npm install
+   ```
+
+   Or simply:
+
+   ```bash
+   npm i
+   ```
+
+3. **Run the Project in Development Mode**
+
+   Start the development server with the following command:
+
+   ```bash
+   npm run dev
+   ```
+
+   Once the server starts, the application will be available at:
+
+   [http://localhost:3000](http://localhost:3000)
+
+## Additional Commands
+
+### Build for Production
+
+To build the project for production:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Start in Production Mode
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+After building the project, you can start it in production mode:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm start
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Project Structure
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+A brief overview of the folder structure:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `/pages`: Contains the Next.js pages (e.g., Home, About, etc.).
+- `/components`: Contains reusable React components.
+- `/styles`: Contains global CSS or styled components.
+- `/public`: Static files like images, fonts, etc.
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Environment Variables
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# travel-app-next
+If your project uses any environment variables, create a `.env.local` file in the root directory and add the required keys. Example:
+
+```env
+NEXT_PUBLIC_API_URL=https://api.example.com
+NEXT_PUBLIC_MAP_API_KEY=your_api_key
+```
+
+Make sure **not** to commit `.env.local` to your repository to keep sensitive data secure.
+
+---
+
+## Deployment
+
+This app can be easily deployed using **Vercel** or similar platforms:
+
+### Deploy on Vercel
+
+1. Push your code to GitHub or another Git platform.
+2. Login to [Vercel](https://vercel.com/).
+3. Import your repository and deploy with default settings.
+
+---
+
+## Support
+
+If you encounter any issues or have questions, feel free to reach out:
+
+- Email: `your-email@example.com`
+- GitHub Issues: [Travel App Issues](https://github.com/your-username/travel-app-next/issues)
+
+---
+
+### Notes:
+
+Replace placeholders like `your-username` and `your-email@example.com` with your actual details. Let me know if you need further adjustments! 😊
