@@ -75,51 +75,14 @@ npm start
 
 ---
 
-## Project Structure
-
-A brief overview of the folder structure:
-
-- `/pages`: Contains the Next.js pages (e.g., Home, About, etc.).
-- `/components`: Contains reusable React components.
-- `/styles`: Contains global CSS or styled components.
-- `/public`: Static files like images, fonts, etc.
-
----
-
 ## Environment Variables
 
-If your project uses any environment variables, create a `.env.local` file in the root directory and add the required keys. Example:
+If your project uses any environment variables, create a `.env` file in the root directory and add the required keys:
 
 ```env
-NEXT_PUBLIC_API_URL=https://api.example.com
-NEXT_PUBLIC_MAP_API_KEY=your_api_key
+NEXT_PUBLIC_URL_NEXT_API=http://localhost:3000
 ```
 
-Make sure **not** to commit `.env.local` to your repository to keep sensitive data secure.
+Make sure **not** to commit `.env` to your repository to keep sensitive data secure.
 
 ---
-
-## Deployment
-
-This app can be easily deployed using **Vercel** or similar platforms:
-
-### Deploy on Vercel
-
-1. Push your code to GitHub or another Git platform.
-2. Login to [Vercel](https://vercel.com/).
-3. Import your repository and deploy with default settings.
-
----
-
-## Support
-
-If you encounter any issues or have questions, feel free to reach out:
-
-- Email: `your-email@example.com`
-- GitHub Issues: [Travel App Issues](https://github.com/your-username/travel-app-next/issues)
-
----
-
-### Notes:
-
-Replace placeholders like `your-username` and `your-email@example.com` with your actual details. Let me know if you need further adjustments! 😊
