@@ -18,7 +18,7 @@ export default function Card({ flight }) {
       </p>
       <p>
         <span className="label">destination :</span>
-        <span>{flight.destination}</span>
+        <span> {flight.destination} </span>
       </p>
       <p>
         <span className="label">price :</span>
