@@ -118,12 +118,17 @@
     transform: rotate(360deg);
   }
 }
+@media (min-width: 2000px) {
+  .container {
+    grid-template-columns: repeat(6, auto);
+  }
+}
 @media (max-width: 768px) {
   .container {
     grid-template-columns: repeat(2, auto);
   }
 }
-@media (max-width: 400) {
+@media (max-width: 425px) {
   .container {
     grid-template-columns: repeat(1, auto);
   }

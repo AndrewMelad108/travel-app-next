@@ -25,10 +25,6 @@ export default function Results() {
         setIsLoading(false);
       });
   };
-
-  useEffect(() => {
-    fetchFlights();
-  }, []);
   useEffect(() => {
     fetchFlights();
   }, [searchParams]);
